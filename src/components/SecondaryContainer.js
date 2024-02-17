@@ -3,8 +3,8 @@ import MovieList from './MovieList'
 import { useSelector } from 'react-redux'
 
 const SecondaryContainer = () => {
-  const movies = useSelector(store => store.movie) 
-  // console.log(movies)
+  const movies = useSelector(store => store.movie)
+   console.log(movies)
   return (
     movies.nowPlayingMovies && (
     <div className='bg-[#0e050f]'>

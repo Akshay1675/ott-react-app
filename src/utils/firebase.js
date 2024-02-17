@@ -10,12 +10,12 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBJfWYfHSEhG-qQk1qenRT1lWFo2sbhuCU",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "ottreactapp.firebaseapp.com",
   projectId: "ottreactapp",
   storageBucket: "ottreactapp.appspot.com",
   messagingSenderId: "573033420644",
-  appId: "1:573033420644:web:a1c1e2e1ca16af1b140c71",
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: "G-0S1WVSMVXV"
 };
 

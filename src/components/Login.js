@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { BACKGROUND_IMG, USER_AVATAR } from '../utils/constants'
-import LoginComponent from './LoginComponent'
 import Header from './Header'
 import { validateData } from '../utils/formValidation'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
@@ -114,11 +113,14 @@ const Login = () => {
         >
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>
+        <p className='text-xs'>test email : test1@netflix.com</p>
+        <p className='pb-2 text-xs'>test password : Test@12345</p>
         <p className="py-0 cursor-pointer" onClick={handleIsSignIn}>
           {isSignIn
             ? "New to Netflix? Sign Up Now"
             : "Already registered? Sign In Now."}
         </p>
+
       </form>
     </div>
   )

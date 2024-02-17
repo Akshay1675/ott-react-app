@@ -10,7 +10,7 @@ const useMainVideo = (id) => {
      const videoData = await fetch("https://api.themoviedb.org/3/movie/"+ id +"/videos?language=en-US", API_OPTIONS)
      const json = await videoData.json()
       console.log(json)
-     const key = json?.results[38].key
+     const key = json?.results[22].key
      dispatch(addMovieKey(key))
     }
     useEffect(() => {
