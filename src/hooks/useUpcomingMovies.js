@@ -8,10 +8,10 @@ const useNowPlayingMovies = () => {
     const movie = useSelector((store) => store.movie.upcomingMovies)
 
   const getMoviesData = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/upcoming?page=1', API_OPTIONS)
+    const data = await fetch('https://content-jiovoot.voot.com/psapi/voot/v1/voot-web/content/specific/editorial-max?query=include%3A5690e3c2dfb408dc240929bf6cae4231&aspectRatio=3x4&responseType=common&page=1')
 
     const json = await data.json()
-    dispatch(addUpcomingMovies(json.results))
+    dispatch(addUpcomingMovies(json.result))
   }
 
   useEffect(() => {

@@ -4,15 +4,15 @@ import MainVideoBg from './MainVideoBg'
 import { useSelector } from 'react-redux'
 
 const MainContainer = () => {
-    const movie = useSelector((store) => store.movie?.upcomingMovies)
+    const movie = useSelector((store) => store.movie?.nowPlayingMovies)
 
     if(!movie) return 
 
     const mainMovie = movie[0]
   return (
     <div className='pt-[30%] bg-black md:pt-0'>
-        <MainVideoTitle title={mainMovie.original_title} overview={mainMovie.overview}/>
-        <MainVideoBg id={mainMovie.id}/>
+        <MainVideoTitle title={mainMovie.shortTitle} overview={mainMovie.shortSynopsis}/>
+        <MainVideoBg />
       
     </div>
   )

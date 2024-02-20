@@ -7,6 +7,7 @@ import { addUser, removeUser } from '../utils/userSlice'
 import { LANG_SELECT, LOGO1 } from '../utils/constants'
 import {  toggleGptSearch } from '../utils/gptSlice'
 import { changeLang } from '../utils/configSlice'
+import { LogOut, Search } from 'lucide-react'
 
 const Header = () => {
   const navigate = useNavigate()
@@ -58,14 +59,14 @@ const Header = () => {
             {LANG_SELECT.map(lang => <option key={lang.identifiler} value={lang.identifiler}>{lang.name}</option>)}
             
           </select>)}
-          <button className='py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg' onClick={handleGptSearch}>{showGptSearch ? "Homepage" : "GPT Search"}</button>
+          <button className='py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg' onClick={handleGptSearch}>{showGptSearch ? "Homepage" : <Search />}</button>
           <img
             className="hidden md:block w-12 h-12"
             alt=""
             src={user?.photoURL}
           />
-          <button onClick={handleSignOut} className="font-bold text-white ">
-            (Sign Out)
+          <button onClick={handleSignOut} className="font-bold text-white ml-4">
+          <LogOut />
           </button>
         </div>
       )}

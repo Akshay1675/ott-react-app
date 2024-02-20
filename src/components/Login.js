@@ -108,14 +108,14 @@ const Login = () => {
         />
         <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-lg"
+          className="p-4 my-6 bg-purple-900 font-bold w-full rounded-lg"
           onClick={handleButtonClick}
         >
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>
-        <p className='text-xs'>test email : test1@netflix.com</p>
-        <p className='pb-2 text-xs'>test password : Test@12345</p>
-        <p className="py-0 cursor-pointer" onClick={handleIsSignIn}>
+        <span className='text-xs font-semibold'>test email : test1@aiflix.com </span>
+        <span className='pb-2 text-xs font-semibold ml-3'> test password : Test@12345</span>
+        <p className="py-0 cursor-pointer font-semibold" onClick={handleIsSignIn}>
           {isSignIn
             ? "New to Netflix? Sign Up Now"
             : "Already registered? Sign In Now."}

@@ -8,10 +8,10 @@ const usePopularMovies = () => {
     const movies = useSelector((store) => store.movie.popularMovies)
 
   const getMoviesData = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/top_rated?&page=1', API_OPTIONS)
+    const data = await fetch('https://content-jiovoot.voot.com/psapi/voot/v1/voot-web/content/specific/editorial-max?query=include%3A3ddc57cab24bb0b33efe8bad07bc509e&aspectRatio=3x4&responseType=common&page=1')
 
     const json = await data.json()
-    dispatch(addPopularMovies(json.results))
+    dispatch(addPopularMovies(json.result))
   }
 
   useEffect(() => {

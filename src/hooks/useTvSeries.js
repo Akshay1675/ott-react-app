@@ -8,10 +8,10 @@ const useTvSeries = () => {
     const series = useSelector((store) => store.movie.tvSeries)
 
   const getMoviesData = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/tv/top_rated?&page=1', API_OPTIONS)
+    const data = await fetch('https://content-jiovoot.voot.com/psapi/voot/v1/voot-web/content/specific/editorial-max?query=include%3Ace0941beecd9519074bad8a466435c95&aspectRatio=3x4&responseType=common&page=1')
 
     const json = await data.json()
-    dispatch(addTvSeries(json.results))
+    dispatch(addTvSeries(json.result))
   }
 
   useEffect(() => {

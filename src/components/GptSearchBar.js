@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import lang from '../utils/languageConfig'
 import openai from "../utils/openai"
-import { API_OPTIONS } from '../utils/constants'
 import { addMovieData } from '../utils/gptSlice'
 
 const GptSearchBar = () => {
@@ -11,7 +10,7 @@ const GptSearchBar = () => {
     const dispatch = useDispatch()
 
     const getMovieResult = async (movieName) => {
-      const movieData = await fetch('https://api.themoviedb.org/3/search/movie?query='+ movieName +'&include_adult=false&language=en-US&page=1', API_OPTIONS)
+      const movieData = await fetch('https://www.omdbapi.com/?s='+ movieName +'&apikey=58e99d47')
 
       const json = await movieData.json()
       return json
@@ -28,7 +27,7 @@ const GptSearchBar = () => {
         messages: [{ role: 'user', content: gptQuery }],
         model: 'gpt-3.5-turbo',
       });
-      const movieName = data?.choices[0]?.message?.content?.split(",")
+      const movieName = data?.choices[0]?.message?.content?.split(",").map(name => name.trim())
 
 
       const promiseArray = movieName.map((movie) => getMovieResult(movie))
@@ -42,7 +41,7 @@ const GptSearchBar = () => {
     <div className='pt-[35%] md:pt-[10%] flex justify-center bg-gradient-to-b from-[#100413]'>
       <form className='w-[90%] md:w-1/2  grid grid-cols-12' onSubmit={(e) => e.preventDefault()}>
         <input ref={searchText} className='p-4 m-4 col-span-9 border border-gray-500 rounded-md ' type='text' placeholder={lang[language].searchPlaceholder}/>
-        <button className='bg-[#5f1870] text-white  px-3 py-2 m-4 rounded-lg col-span-3' onClick={handleGptSearch}>{lang[language].search}</button>
+        <button className='bg-[#5f1870] text-white w-20   px-3 py-2 m-4 rounded-lg col-span-3' onClick={handleGptSearch}>{lang[language].search}</button>
       </form>
     </div>
   )

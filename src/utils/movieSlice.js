@@ -4,7 +4,6 @@ const movieSlice = createSlice({
     name: "movie",
     initialState: {
         nowPlayingMovies: null,
-        mainMovieKey: null,
         popularMovies: null,
         upcomingMovies: null,
         tvSeries: null,
@@ -22,9 +21,6 @@ const movieSlice = createSlice({
         },
         addTvSeries: (state, action) => {
             state.tvSeries = action.payload
-        },
-        addMovieKey: (state,action) => {
-            state.mainMovieKey = action.payload
         },
         toggleMute: (state) => {
             state.muteStatus = !state.muteStatus
